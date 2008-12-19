@@ -12,7 +12,7 @@ def combine(sets)
     combinations = []
     set.each do |elem|
       combine(rest).each do |c|
-        combinations << [elem, c].flatten
+        combinations << c.unshift(elem)
       end
     end
     combinations
