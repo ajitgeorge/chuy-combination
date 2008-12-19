@@ -1,6 +1,4 @@
 def combine(sets)
-  return [] if sets.empty? 
-
   if sets.size == 1 then
     combinations = []
     sets[0].each do |elem| 
