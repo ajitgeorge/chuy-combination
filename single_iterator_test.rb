@@ -8,8 +8,12 @@ class TestSingleIterator < Test::Unit::TestCase
 
     assert single_iterator.at_beginning?
     assert_equal 1, single_iterator.next
+    assert_equal 1, single_iterator.current
+    
     assert single_iterator.at_beginning?
     assert_equal 1, single_iterator.next
+    assert_equal 1, single_iterator.current
+
     assert single_iterator.at_beginning?
   end
   
@@ -18,17 +22,23 @@ class TestSingleIterator < Test::Unit::TestCase
 
     assert iterator.at_beginning?
     assert_equal 1, iterator.next
+    assert_equal 2, iterator.current
     assert !iterator.at_beginning?
     assert_equal 2, iterator.next
+    assert_equal 3, iterator.current
     assert !iterator.at_beginning?
     assert_equal 3, iterator.next
 
+    assert_equal 1, iterator.current
     assert iterator.at_beginning?
     assert_equal 1, iterator.next
+    assert_equal 2, iterator.current
     assert !iterator.at_beginning?
     assert_equal 2, iterator.next
+    assert_equal 3, iterator.current
     assert !iterator.at_beginning?
     assert_equal 3, iterator.next
     assert iterator.at_beginning?
+    assert_equal 1, iterator.current
   end
 end

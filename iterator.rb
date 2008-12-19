@@ -6,10 +6,16 @@ class Iterator
   end
   
   def next
-    [@single_iterators.last.next]
+    result = @single_iterators.collect { |si| si.current }
+    @single_iterators.reverse.each do |si|
+      si.next
+      break unless si.at_beginning?
+    end
+    result
   end
   
   def at_beginning?
-    @single_iterators.last.at_beginning?
+    iterators_at_beginning = @single_iterators.collect { |si| si.at_beginning? }
+    !iterators_at_beginning.include?(false)
   end
 end

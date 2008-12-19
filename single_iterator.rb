@@ -5,12 +5,16 @@ class SingleIterator
   end
   
   def next
-    result = @array[@pointer]
+    result = current
     @pointer = (@pointer + 1) % @array.size
     result
   end
   
   def at_beginning?
     @pointer == 0
+  end
+  
+  def current
+    @array[@pointer]
   end
 end
