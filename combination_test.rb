@@ -8,10 +8,11 @@ class TestCombination < Test::Unit::TestCase
   end
   
   def test_one_set
-    assert_equal [[1]], combine([[1]])
+    assert_equal [[1], [2], [3]], combine([[1, 2, 3]])
   end
   
   def test_singletons
+    assert_equal [[1]], combine([[1]])
     assert_equal [[1, 2]], combine([[1], [2]])
     assert_equal [[1, 2, 3]], combine([[1], [2], [3]])
   end
