@@ -1,24 +1,20 @@
 def combine(sets)
-  if sets.size == 1 then
-    combinations = []
-    sets[0].each do |elem| 
-      combinations << [elem] 
-    end
-    return combinations
-  end
-
-  combinations = []
-
-  
-  if !sets.empty? then
+  case
+  when sets.size == 0: 
+    # [] => []
+    []
+  when sets.size == 1:
+    # [a, b, c] => [[a], [b], [c]]
+    sets[0].collect { |elem| [elem] } 
+  when !sets.empty?:
     set = sets[0]
     rest = sets[1..-1]
+    combinations = []
     set.each do |elem|
       combine(rest).each do |c|
         combinations << [elem, c].flatten
       end
     end
+    combinations
   end
-  
-  combinations
 end
