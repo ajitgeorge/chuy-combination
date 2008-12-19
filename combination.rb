@@ -7,6 +7,7 @@ def combine(sets)
     # [a, b, c] => [[a], [b], [c]]
     sets[0].collect { |elem| [elem] } 
   when !sets.empty?:
+    # for each element in set, prepend it to all the combinations of rest
     set = sets[0]
     rest = sets[1..-1]
     combinations = []
