@@ -4,7 +4,7 @@ require "odometer"
 
 class TestCombination < Test::Unit::TestCase
   def test_no_sets
-    assert_equal [], combine([])
+    assert_equal [[]], combine([])
   end
   
   def test_one_set
