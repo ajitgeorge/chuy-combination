@@ -1,20 +1,22 @@
 class Wheel
   def initialize(array)
     @array = array
-    @pos = 0
-    @rolled_over = false
+    @num_rotations = 0
   end
   
   def current
-    @array[@pos]
+    @array[pos]
   end
   
   def rotate
-    @pos = (@pos + 1) % @array.size
-    @rolled_over = @pos == 0
+    @num_rotations += 1
   end
   
   def rolled_over?
-    @rolled_over
+    @num_rotations > 0 && pos == 0
+  end
+  
+  def pos
+    @num_rotations % @array.size
   end
 end
